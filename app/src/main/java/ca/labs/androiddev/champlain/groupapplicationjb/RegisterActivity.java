@@ -4,14 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class LoginActivity extends AppCompatActivity
+public class RegisterActivity extends AppCompatActivity
 {
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
     }
 
     public void btnGoIndex_onClick(View v)
@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity
         super.finish();
     }
 
-    public void btnLogin_onClick(View v)
+    public void btnRegister_onClick(View v)
     {
 
     }

@@ -32,6 +32,6 @@ public class MainActivity extends AppCompatActivity
 
     public void btnRegister_onClick(View v)
     {
-
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 }
