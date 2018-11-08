@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <TextView
         android:id="@+id/txtViewLoginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="@string/txtViewLoginTitleText"
+        android:text="@string/txtViewRegisterTitleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -64,6 +64,30 @@
         app:layout_constraintStart_toEndOf="@+id/txtViewPassword"
         app:layout_constraintTop_toBottomOf="@+id/editUsername" />
 
+    <TextView
+        android:id="@+id/txtViewConfirmPassword"
+        android:layout_width="74dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/txtViewConfirmPasswordText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtViewPassword" />
+
+    <EditText
+        android:id="@+id/editConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="36dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtViewConfirmPassword"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+
     <Button
         android:id="@+id/btnGoIndex"
         android:layout_width="wrap_content"
@@ -78,15 +102,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:text="@string/txtViewLoginTitleText"
-        android:onClick="btnLogin_onClick"
+        android:text="@string/txtViewRegisterTitleText"
+        android:onClick="btnRegister_onClick"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editConfirmPassword" />
+
 </android.support.constraint.ConstraintLayout>
