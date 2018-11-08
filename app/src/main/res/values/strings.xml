@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GroupApplicationJB</string>
+    <string name="btnStoreText">Go to Store</string>
+    <string name="btnGoIndexText">Go back to Index</string>
+    <string name="btnTipsText">See Tips</string>
+    <string name="btnLoginText">Login</string>
+    <string name="btnRegisterText">Register</string>
+    <string name="txtViewTipsTitleText">Tips Page</string>
+    <string name="txtViewStoreTitleText">Store Page</string>
+    <string name="txtViewIndexTitleText">Index Page</string>
+    <string name="txtViewUsernameText">Username:</string>
+    <string name="txtViewPasswordText">Password:</string>
+    <string name="txtViewLoginTitleText">Login</string>
+    <string name="editLoginHint">Username</string>
+    <string name="editPasswordHint">Password</string>
+</resources>
