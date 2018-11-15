@@ -33,9 +33,8 @@ public class RegisterActivity extends AppCompatActivity
         EditText passwordInput = (EditText)findViewById(R.id.editPassword);
         EditText passwordConfirmInput = (EditText)findViewById(R.id.editConfirmPassword);
         TextView errorText = (TextView)findViewById(R.id.errorMessageText);
-        //Dummy Change
-        int i = 0;
-        //End of Dummy Change
+
+
         String username = usernameInput.getText().toString();
         String password = passwordInput.getText().toString();
         String passwordConfirm = passwordConfirmInput.getText().toString();
