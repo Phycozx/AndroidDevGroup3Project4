@@ -13,4 +13,5 @@
     <string name="txtViewConfirmPasswordText">Confirm Password:</string>
     <string name="txtViewLoginTitleText">Login</string>
     <string name="txtViewRegisterTitleText">Register</string>
+    <string name="notLoggedIn">You are not logged in.</string>
 </resources>
