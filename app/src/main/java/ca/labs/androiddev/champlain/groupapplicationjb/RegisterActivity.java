@@ -10,6 +10,7 @@ import android.widget.Toast;
 import java.util.regex.Pattern;
 
 import Models.DBManager;
+import Models.User;
 
 public class RegisterActivity extends AppCompatActivity
 {
@@ -53,9 +54,17 @@ public class RegisterActivity extends AppCompatActivity
         if (validRegister)
         {
             DBManager db = new DBManager(this);
-            db.addUser(username, password);
-            Toast.makeText(getApplication(),"Successful Registration",Toast.LENGTH_LONG);
-            super.finish();
+            if (!db.checkForUser(new User(username, password)))
+            {
+                db.addUser(username, password);
+                Toast.makeText(getApplication(),"Successful Registration",Toast.LENGTH_LONG);
+                super.finish();
+            }
+            else
+            {
+                errorText.setText("Username already taken");
+            }
+
         }
         else
         {

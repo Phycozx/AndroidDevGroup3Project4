@@ -25,8 +25,8 @@ public class DBManager extends SQLiteOpenHelper
             User.USER_COL_USERNAME + " TEXT," +
             User.USER_COL_PASSWORD + " TEXT)";
 
-    private static String adminUsername = "admin";
-    private static String adminPassword = "admin";
+    private final static String adminUsername = "admin";
+    private final static String adminPassword = "admin";
 
 
     @Override
