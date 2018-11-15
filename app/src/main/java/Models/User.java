@@ -2,6 +2,7 @@ package Models;
 
 public class User
 {
+    // fields
     private int id;
     private String username;
     private String password;
