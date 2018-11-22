@@ -17,13 +17,16 @@ public class DBManager extends SQLiteOpenHelper
     }
 
 
-
-
-
     public static final String CREATE_USER_TAB_QUERY = "CREATE TABLE " + User.USER_TAB_NAME + " (" +
             User.USER_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             User.USER_COL_USERNAME + " TEXT," +
             User.USER_COL_PASSWORD + " TEXT)";
+
+    public static final String CREATE_PRODUCT_TAB_QUERY = "CREATE TABLE " + Product.PRODUCT_TAB_NAME + " (" +
+            Product.PRODUCT_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            Product.PRODUCT_COL_NAME + " TEXT," +
+            Product.PRODUCT_COL_PRICE + " NUMBER," +
+            Product.PRODUCT_COL_DESCRIPTION + " TEXT)";
 
     private final static String adminUsername = "admin";
     private final static String adminPassword = "admin";
@@ -38,6 +41,9 @@ public class DBManager extends SQLiteOpenHelper
         vals.put(User.USER_COL_USERNAME,adminUsername);
         vals.put(User.USER_COL_PASSWORD,adminPassword);
         db.insert(User.USER_TAB_NAME,null, vals);
+
+        db.execSQL(CREATE_PRODUCT_TAB_QUERY);
+
     }
 
     @Override
@@ -95,4 +101,54 @@ public class DBManager extends SQLiteOpenHelper
         return valid;
 
     }
+
+    //Product
+    public void addProduct(String name, double price, String description )
+    {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues vals = new ContentValues();
+        vals.put(Product.PRODUCT_COL_NAME,name);
+        vals.put(Product.PRODUCT_COL_PRICE,price);
+        vals.put(Product.PRODUCT_COL_DESCRIPTION,description);
+        db.insert(Product.PRODUCT_TAB_NAME,null, vals);
+        db.close();
+    }
+
+    public ArrayList<Product> getProductList()
+    {
+        ArrayList<Product> list = new ArrayList<Product>();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String GET_LIST = "SELECT * FROM " + Product.PRODUCT_TAB_NAME+";";
+        Cursor c = db.rawQuery(GET_LIST,null);
+
+        if (c.moveToFirst())
+        {
+            do {
+                Product prod = new Product();
+                prod.setId(c.getInt(c.getColumnIndex(Product.PRODUCT_COL_ID)));
+                prod.setName(c.getString(c.getColumnIndex(Product.PRODUCT_COL_NAME)));
+                prod.setPrice(c.getDouble(c.getColumnIndex(Product.PRODUCT_COL_PRICE)));
+                prod.setDescription(c.getString(c.getColumnIndex(Product.PRODUCT_COL_DESCRIPTION)));
+                list.add(prod);
+            } while (c.moveToNext());
+        }
+        return list;
+    }
+
+    public boolean productExists(Product p)
+    {
+        ArrayList<Product> list = getProductList();
+        for (int i = 0; i < list.size(); i++)
+        {
+            if (p.getName().equals(list.get(i).getName()))
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
 }

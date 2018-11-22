@@ -16,4 +16,10 @@
     <string name="txtViewLoginTitleText">Login</string>
     <string name="txtViewRegisterTitleText">Register</string>
     <string name="notLoggedIn">You are not logged in.</string>
+    <string name="addprod">Add Product</string>
+    <string name="txtViewAddProductTitle">Add Product</string>
+    <string name="txtviewProdName">Product Name:</string>
+    <string name="txtviewprodprice">Price:</string>
+    <string name="txtviewproddescription">Description:</string>
+    <string name="addprodbtn">Add Product</string>
 </resources>
