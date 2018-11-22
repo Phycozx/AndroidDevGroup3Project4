@@ -5,6 +5,8 @@
     <string name="btnTipsText">See Tips</string>
     <string name="btnLoginText">Login</string>
     <string name="btnRegisterText">Register</string>
+    <string name="btnAboutText">About Us</string>
+    <string name="txtViewAboutTitleText">About Us Page</string>
     <string name="txtViewTipsTitleText">Tips Page</string>
     <string name="txtViewStoreTitleText">Store Page</string>
     <string name="txtViewIndexTitleText">Index Page</string>
