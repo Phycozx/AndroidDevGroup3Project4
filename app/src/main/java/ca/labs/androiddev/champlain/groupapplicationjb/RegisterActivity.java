@@ -29,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity
 
     public void btnRegister_onClick(View v)
     {
+
         EditText usernameInput = (EditText)findViewById(R.id.editUsername);
         EditText passwordInput = (EditText)findViewById(R.id.editPassword);
         EditText passwordConfirmInput = (EditText)findViewById(R.id.editConfirmPassword);
@@ -41,19 +42,21 @@ public class RegisterActivity extends AppCompatActivity
 
         boolean validRegister = true;
         String errorMessage = "";
-        if (Pattern.matches("[a-zA-Z]+", password) == false)
-        {
-            validRegister = false;
-            errorMessage = "Password must contain at least one number.";
-        }
+        DBManager db = new DBManager(this);
+
         if (!password.equals(passwordConfirm))
         {
             validRegister = false;
             errorMessage = "Passwords do not match";
         }
+        if (db.checkForUser(new User(username, password)))
+        {
+            validRegister = false;
+            errorMessage = "Username already taken";
+        }
         if (validRegister)
         {
-            DBManager db = new DBManager(this);
+
             if (!db.checkForUser(new User(username, password)))
             {
                 db.addUser(username, password);
