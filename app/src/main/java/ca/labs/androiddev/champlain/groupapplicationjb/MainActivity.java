@@ -52,4 +52,9 @@ public class MainActivity extends AppCompatActivity
     {
         startActivity(new Intent(this, RegisterActivity.class));
     }
+
+    public void btnAbout_onClick(View v)
+    {
+        startActivity(new Intent(this, AboutActivity.class ));
+    }
 }
