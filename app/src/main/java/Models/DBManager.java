@@ -140,15 +140,14 @@ public class DBManager extends SQLiteOpenHelper
     public boolean productExists(Product p)
     {
         ArrayList<Product> list = getProductList();
-        boolean exists = false;
         for (int i = 0; i < list.size(); i++)
         {
             if (p.getName().equals(list.get(i).getName()))
             {
-                exists = true;
+                return true;
             }
         }
-        return exists;
+        return false;
 
     }
 

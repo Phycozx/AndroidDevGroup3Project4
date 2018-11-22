@@ -36,17 +36,16 @@ public class AddProduct_Activity extends AppCompatActivity {
 
         DBManager db = new DBManager(this);
 
-     //   if(!db.productExists(new Product(name,price,desc))) {
+        if(!db.productExists(new Product(name,price,desc))) {
             db.addProduct(name, price, desc);
             Toast.makeText(getApplication(), name + " added", Toast.LENGTH_LONG).show();
 
             nameInput.setText("");
             priceInput.setText("");
             descInput.setText("");
-     //   }
-       /* else{
+        }
+        else{
             Toast.makeText(getApplication(), name + " already exists", Toast.LENGTH_LONG).show();
-        }*/
-
+        }
     }
 }
