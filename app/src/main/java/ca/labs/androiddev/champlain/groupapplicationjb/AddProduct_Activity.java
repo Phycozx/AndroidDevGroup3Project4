@@ -1,14 +1,13 @@
 package ca.labs.androiddev.champlain.groupapplicationjb;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import Models.DBManager;
-import Models.Product;
+import ca.labs.androiddev.champlain.groupapplicationjb.Models.DBManager;
+import ca.labs.androiddev.champlain.groupapplicationjb.Models.Product;
 
 public class AddProduct_Activity extends AppCompatActivity {
 

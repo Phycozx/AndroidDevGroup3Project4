@@ -20,8 +20,9 @@
         <activity android:name=".Tips_Activity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".AboutActivity"></activity>
-        <activity android:name=".AddProduct_Activity"></activity>
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".AddProduct_Activity" />
+        <activity android:name=".store_item"></activity>
     </application>
 
 </manifest>

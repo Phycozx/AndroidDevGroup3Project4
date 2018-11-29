@@ -1,4 +1,4 @@
-package Models;
+package ca.labs.androiddev.champlain.groupapplicationjb.Models;
 
 import android.content.ContentValues;
 import android.content.Context;
