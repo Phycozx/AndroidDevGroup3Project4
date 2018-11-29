@@ -7,10 +7,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.regex.Pattern;
-
-import Models.DBManager;
-import Models.User;
+import ca.labs.androiddev.champlain.groupapplicationjb.Models.DBManager;
+import ca.labs.androiddev.champlain.groupapplicationjb.Models.User;
 
 public class RegisterActivity extends AppCompatActivity
 {

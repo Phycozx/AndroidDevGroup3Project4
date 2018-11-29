@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import Models.DBManager;
-import Models.User;
+import ca.labs.androiddev.champlain.groupapplicationjb.Models.DBManager;
+import ca.labs.androiddev.champlain.groupapplicationjb.Models.User;
 
 public class LoginActivity extends AppCompatActivity
 {

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import Models.User;
+import ca.labs.androiddev.champlain.groupapplicationjb.Models.User;
 
 public class MainActivity extends AppCompatActivity
 {
