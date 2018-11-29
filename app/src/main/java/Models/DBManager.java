@@ -28,6 +28,10 @@ public class DBManager extends SQLiteOpenHelper
             Product.PRODUCT_COL_PRICE + " NUMBER," +
             Product.PRODUCT_COL_DESCRIPTION + " TEXT)";
 
+    public static final String CREATE_TIPS_TAB_QUERY = "CREATE TABLE " + Tips.Tips_COL_NAME + " (" +
+            Tips.TIPS_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+            Tips.TIPS_COL_DESCRIPTION + "TEXT)";
+
     private final static String adminUsername = "admin";
     private final static String adminPassword = "admin";
 
@@ -44,12 +48,45 @@ public class DBManager extends SQLiteOpenHelper
 
         db.execSQL(CREATE_PRODUCT_TAB_QUERY);
 
+        db.execSQL(CREATE_TIPS_TAB_QUERY);
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
 
+    }
+
+    public void addTip(String Description)
+    {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues vals = new ContentValues();
+        vals.put(Tips.TIPS_COL_DESCRIPTION,Description);
+        db.insert(Tips.Tips_COL_NAME,null, vals);
+        db.close();
+    }
+
+    public ArrayList<Tips> getTipsList()
+    {
+        ArrayList<Tips> list = new ArrayList<Tips>();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String GET_LIST = "SELECT * FROM " + Tips.Tips_COL_NAME+";";
+        Cursor c = db.rawQuery(GET_LIST,null);
+
+        if (c.moveToFirst())
+        {
+            do {
+                Tips t = new Tips();
+                t.setId(c.getInt(c.getColumnIndex(Tips.TIPS_COL_ID)));
+                t.setDescription(c.getString(c.getColumnIndex(Tips.TIPS_COL_DESCRIPTION)));
+
+                list.add(t);
+            } while (c.moveToNext());
+        }
+        return list;
     }
 
     public void addUser(String username, String password)
