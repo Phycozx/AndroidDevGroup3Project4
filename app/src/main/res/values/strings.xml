@@ -22,4 +22,5 @@
     <string name="txtviewprodprice">Price:</string>
     <string name="txtviewproddescription">Description:</string>
     <string name="addprodbtn">Add Product</string>
+    <string name="BuyText">Buy</string>
 </resources>
