@@ -28,7 +28,7 @@ public class DBManager extends SQLiteOpenHelper
             Product.PRODUCT_COL_PRICE + " NUMBER," +
             Product.PRODUCT_COL_DESCRIPTION + " TEXT)";
 
-    public static final String CREATE_TIPS_TAB_QUERY = "CREATE TABLE " + Tips.Tips_COL_NAME + " (" +
+    public static final String CREATE_TIPS_TAB_QUERY = "CREATE TABLE " + Tips.Tips_TABLE_NAME + " (" +
             Tips.TIPS_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
             Tips.TIPS_COL_DESCRIPTION + "TEXT)";
 
@@ -64,7 +64,7 @@ public class DBManager extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues vals = new ContentValues();
         vals.put(Tips.TIPS_COL_DESCRIPTION,Description);
-        db.insert(Tips.Tips_COL_NAME,null, vals);
+        db.insert(Tips.Tips_TABLE_NAME,null, vals);
         db.close();
     }
 
@@ -73,7 +73,7 @@ public class DBManager extends SQLiteOpenHelper
         ArrayList<Tips> list = new ArrayList<Tips>();
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String GET_LIST = "SELECT * FROM " + Tips.Tips_COL_NAME+";";
+        String GET_LIST = "SELECT * FROM " + Tips.Tips_TABLE_NAME+";";
         Cursor c = db.rawQuery(GET_LIST,null);
 
         if (c.moveToFirst())
