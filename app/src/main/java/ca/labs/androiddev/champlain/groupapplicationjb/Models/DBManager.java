@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
+import Models.Tips;
+
 public class DBManager extends SQLiteOpenHelper
 {
     private static final int DATABASE_VERSION = 2;
