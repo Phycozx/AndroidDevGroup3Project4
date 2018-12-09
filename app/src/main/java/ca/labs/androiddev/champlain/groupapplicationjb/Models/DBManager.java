@@ -71,7 +71,7 @@ public class DBManager extends SQLiteOpenHelper
     public ArrayList<User> getUserList()
     {
         ArrayList<User> list = new ArrayList<User>();
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
 
         String GET_LIST = "SELECT * FROM " + User.USER_TAB_NAME+";";
         Cursor c = db.rawQuery(GET_LIST,null);
