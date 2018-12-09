@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GroupApplicationJB</string>
+    <string name="app_name">JB Skin Guru</string>
     <string name="btnStoreText">Go to Store</string>
     <string name="btnGoIndexText">Go back to Index</string>
     <string name="btnTipsText">See Tips</string>
@@ -23,4 +23,7 @@
     <string name="txtviewproddescription">Description:</string>
     <string name="addprodbtn">Add Product</string>
     <string name="BuyText">Buy</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="navbarIndex">Home</string>
 </resources>
