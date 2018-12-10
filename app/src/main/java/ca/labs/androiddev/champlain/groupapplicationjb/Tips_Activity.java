@@ -7,21 +7,68 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+
+import ca.labs.androiddev.champlain.groupapplicationjb.Models.DBManager;
+import ca.labs.androiddev.champlain.groupapplicationjb.Models.Tip;
+import ca.labs.androiddev.champlain.groupapplicationjb.Models.User;
 
 public class Tips_Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
     private DrawerLayout dl;
     private ActionBarDrawerToggle tg;
+    ArrayList<Tip> tips;
+    ProductAdapter adapter;
+    DBManager manager;
+
     TextView tv;
+
+    @Override
+    public void onStart()
+    {
+        Button addButton = (Button)findViewById(R.id.addTip);
+        addButton.setVisibility(View.GONE);
+        if (User.isIsLoggedIn())
+        {
+            if (User.getCurrUser().equals("admin"))
+            {
+                addButton.setVisibility(View.VISIBLE);
+            }
+        }
+        super.onStart();
+    }
+
+    public void btnAddTip_onClick(View v)
+    {
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips_);
+
+        /*RecyclerView recyclerView = findViewById(R.id.recyclerView_list);
+
+        recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL));
+
+        manager = new DBManager(this);
+
+        tips = manager.getTipsList();
+
+        adapter = new ProductAdapter(tips);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));*/
 
         tv = (TextView) findViewById(R.id.all_tips);
 

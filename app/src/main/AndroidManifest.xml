@@ -22,7 +22,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".AddProduct_Activity" />
-        <activity android:name=".store_item"></activity>
+        <activity android:name=".store_item" />
+        <activity android:name=".AddTip_Activity"></activity>
     </application>
 
 </manifest>
