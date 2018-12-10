@@ -5,7 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -19,6 +21,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         TextView txtName;
         TextView txtDescription;
         TextView txtPrice;
+        Button btnBuy;
 
         public ViewHolder(View itemView)
         {
@@ -26,6 +29,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             txtName = itemView.findViewById(R.id.txtProductName);
             txtDescription = itemView.findViewById(R.id.txtProductDescription);
             txtPrice = itemView.findViewById(R.id.txtProductPrice);
+            btnBuy = itemView.findViewById(R.id.btnBuy);
         }
     }
 
@@ -50,12 +54,24 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(ProductAdapter.ViewHolder viewHolder, int position)
     {
-        Product product = mProducts.get(position);
+        final Product product = mProducts.get(position);
 
         viewHolder.txtName.setText(product.getName());
         viewHolder.txtDescription.setText(product.getDescription());
-        String priceStr = new DecimalFormat("$#,##0.00").format(product.getPrice());
+        final String priceStr = new DecimalFormat("$#,##0.00").format(product.getPrice());
         viewHolder.txtPrice.setText(priceStr);
+
+        viewHolder.btnBuy.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Toast.makeText(
+                    v.getContext(),
+                    "You have purchased " + product.getName() + " for " + priceStr,
+                    Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     // Returns the total count of items in the list
